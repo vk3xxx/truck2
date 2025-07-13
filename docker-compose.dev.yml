@@ -7,7 +7,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.dev
     ports:
-      - "3000:3000"
+      - "3500:3500"
     environment:
       - REACT_APP_API_URL=http://localhost:8090
       - REACT_APP_WS_URL=ws://localhost:8090
