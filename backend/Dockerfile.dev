@@ -1,0 +1,22 @@
+FROM golang:1.21-alpine
+
+WORKDIR /app
+
+# Install git, ca-certificates, and air for hot reloading
+RUN apk add --no-cache git ca-certificates curl && \
+    go install github.com/cosmtrek/air@latest
+
+# Copy go mod files
+COPY go.mod go.sum ./
+
+# Download dependencies
+RUN go mod download
+
+# Copy source code
+COPY . .
+
+# Expose port
+EXPOSE 8080
+
+# Run with air for hot reloading
+CMD ["air"] 
