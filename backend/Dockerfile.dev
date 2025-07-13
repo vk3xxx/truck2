@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Install git, ca-certificates, and air for hot reloading
 RUN apk add --no-cache git ca-certificates curl && \
-    go install github.com/cosmtrek/air@latest
+    go install github.com/cosmtrek/air@v1.49.0
 
 # Copy go mod files
 COPY go.mod go.sum ./
